@@ -1,6 +1,6 @@
 class RpsController < ApplicationController
   def main
-    render ({:template => "main/main_page"})
+    render ({:template => "game/main_page"})
   end
 
   def rock 
