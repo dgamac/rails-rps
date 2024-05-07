@@ -11,15 +11,39 @@ class GameController < ApplicationController
     @outcome = "lost"
   else
     @outcome = "won"
-  end
+  
     
-    render({ :template => "game_templates/play_rock"})
+    render({ :template => "game_templates/play"})
   end
   def paper
-    render({ :template => "game_templates/play_paper"})
+    moves = ["rock", "paper", "scissors"]
+
+    @comp_move = moves.sample
+    @our_move = "paper"
+  
+    if @comp_move == "paper"
+      @outcome = "tied"
+    elsif @comp_move == "scissors"
+      @outcome = "lost"
+    else
+      @outcome = "won" 
+
+    render({ :template => "game_templates/play"})
   end
   def scissors
-    render({ :template => "game_templates/play_scissors"})
+    moves = ["rock", "paper", "scissors"]
+
+  @comp_move = moves.sample
+  @our_move = "scissors"
+
+  if @comp_move == "scissors"
+    @outcome = "tied"
+  elsif @comp_move == "rock"
+    @outcome = "lost"
+  else
+    @outcome = "won"
+
+    render({ :template => "game_templates/play"})
   end
   def homepage
     render({ :template => "game_templates/homepage"})
